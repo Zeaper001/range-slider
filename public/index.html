@@ -2,9 +2,38 @@
 <html>
   <head>
     <title>A range slider</title>
-    <script src="bundle.js"></script>
+    <script src="bundle.js" async></script>
   </head>
   <body>
-    <p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.</p>
+    
+    <section class="py-32">
+      <div class="container mx-auto">
+
+        <div class="Price--Selector text-center">
+
+            <p>Payment period</p>
+            <ul class="Price--Selector__subscription-period flex flex-row cursor-pointer justify-center max-w-2xl mx-auto mb-10">
+              <li class="hover:bg-blue-300">Monthly</li>
+              <li class="hover:bg-blue-300">Yearly</li>
+            </ul>
+
+            <p>How many employees?</p>
+            <ul class="Price--Selector__price-controls flex flex-row cursor-pointer justify-center max-w-2xl mx-auto">
+              <li data-price-range="priceRange1" class="hover:bg-blue-300">1</li>
+              <li data-price-range="priceRange2" class="hover:bg-blue-300">2</li>
+              <li data-price-range="priceRange3" class="hover:bg-blue-300">3</li>
+              <li data-price-range="priceRange4" class="hover:bg-blue-300">4</li>
+              <li data-price-range="priceRange5" class="hover:bg-blue-300">5</li>
+            </ul>
+
+          <div class="flex max-w-2xl mx-auto shadow justify-center mt-20">
+              <h3 class="Price--Selector__subscription-price text-4xl font-bold">0</h3>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
   </body>
 </html>

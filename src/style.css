@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    background-color: red;
+html, body {
+    font-size: 16px;
+}
+
+ul li {
+    @apply py-4 px-8 font-bold;
 }
