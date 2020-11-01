@@ -1,4 +1,5 @@
 import "./style.css";
+
 import PriceSelector from './PriceSelector';
 
 const priceSelectors = []
