@@ -30,6 +30,7 @@
     "core-js": "^3.6.5",
     "css-loader": "^5.0.0",
     "mini-css-extract-plugin": "^1.2.1",
+    "numeral": "^2.0.6",
     "postcss-loader": "^4.0.4",
     "postcss-preset-env": "^6.7.0",
     "regenerator-runtime": "^0.13.7",

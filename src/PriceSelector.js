@@ -20,7 +20,9 @@ class PriceSelector {
 
         this.state = {
             paymentPeriod: 'monthly',
+            previousPeriod: 'monthly',
             selectedPrice: 'priceRange1',
+            previousPrice: 'priceRange1',
             set price(val) {
                 this.selectedPrice = val;
                 this.stateListener(val);
@@ -43,18 +45,21 @@ class PriceSelector {
 
         this.bindEvents();
         this.setPrices();
-        animateCount(document.querySelector('.Count-element'));
     }
 
     bindEvents() {
         this.priceControls.forEach((item) => {
             item.addEventListener('click', () => {
+                this.state.previousPeriod = this.state.period;
+                this.state.previousPrice = this.state.price;
                 this.state.price = item.dataset.priceRange;
             })
         });
 
         this.periodControls.forEach((item) => {
             item.addEventListener('click', () => {
+                this.state.previousPeriod = this.state.period;
+                this.state.previousPrice = this.state.price;
                 this.state.period = item.dataset.periodRange;
             })
         });
@@ -82,8 +87,15 @@ class PriceSelector {
     }
 
     setPrices() {
+
+        console.log(this.state)
+
         if(this.subscription) {
-            this.subscription.innerHTML = this.PAYMENT_PERIODS[this.state.period][this.state.price].standard;
+            animateCount(
+                this.subscription,
+                this.PAYMENT_PERIODS[this.state.previousPeriod][this.state.previousPrice].standard,
+                this.PAYMENT_PERIODS[this.state.period][this.state.price].standard
+            );
         }
 
         if(this.customer_score) {
