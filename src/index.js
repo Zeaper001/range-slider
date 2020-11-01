@@ -57,7 +57,6 @@ class PriceSelector {
             })
         });
 
-
         this.state.registerListener(() => {
             this.setPrices();
 
@@ -80,16 +79,19 @@ class PriceSelector {
     }
 
     setPrices() {
+
+        let pricePackage = this.PAYMENT_PERIODS[this.state.period][this.state.price];
+
         if(this.subscription) {
-            this.subscription.innerHTML = this.PAYMENT_PERIODS[this.state.period][this.state.price].standard;
+            this.subscription.innerHTML = pricePackage.standard;
         }
 
         if(this.customer_score) {
-            this.customer_score.innerHTML = this.PAYMENT_PERIODS[this.state.period][this.state.price].customerScore;
+            this.customer_score.innerHTML = pricePackage.customerScore;
         }
 
         if(this.shipping_score) {
-            this.shipping_score.innerHTML = this.PAYMENT_PERIODS[this.state.period][this.state.price].shippingScore;
+            this.shipping_score.innerHTML = pricePackage.shippingScore;
         }
     }
 }
