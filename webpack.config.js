@@ -3,10 +3,15 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  mode: 'development',
+  devtool: 'source-map',
+  entry: {
+    app: ['core-js/stable', './src/index.js']
+  },
   output: {
     path: path.resolve(__dirname, 'public'),
-    filename: 'bundle.js',
+    filename: "[name].bundle.js",
+		chunkFilename: "[id].bundle.js"
   },
   module: {
     rules: [
@@ -22,4 +27,7 @@ module.exports = {
       },
     ]
   },
+  plugins: [
+    new webpack.SourceMapDevToolPlugin({})
+  ]
 };

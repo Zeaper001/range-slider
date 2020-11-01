@@ -4,9 +4,6 @@ import {prices, yearPrices} from './store.js';
 class PriceSelector {
 
     constructor(element) {
-
-        self = this;
-
         this.element = element;
         this.priceControls = this.element.querySelectorAll('.Price--Selector__price-controls li');
         this.subscription = this.element.querySelector('.Price--Selector__subscription-price');
@@ -38,19 +35,21 @@ class PriceSelector {
     }
 
     bindEvents() {
-        self.priceControls.forEach((item, index) => {
+        // let self = this;
+
+        this.priceControls.forEach((item) => {
             item.addEventListener('click', () => {
-                self.state.price = item.dataset.priceRange;
+                this.state.price = item.dataset.priceRange;
             })
         });
 
-        self.state.registerListener(function() {
-            self.setPrice();
+        this.state.registerListener(() => {
+            this.setPrice();
         })
     }
 
     setPrice() {
-        self.subscription.innerHTML = prices[self.state.price].standard;
+        this.subscription.innerHTML = prices[this.state.price].standard;
     }
 
 
