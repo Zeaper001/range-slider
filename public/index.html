@@ -13,21 +13,34 @@
 
             <p>Payment period</p>
             <ul class="Price--Selector__subscription-period flex flex-row cursor-pointer justify-center max-w-2xl mx-auto mb-10">
-              <li data-period-range="monthly" class="hover:bg-blue-300">Monthly</li>
+              <li data-period-range="monthly" class="active-price hover:bg-blue-300">Monthly</li>
               <li data-period-range="yearly" class="hover:bg-blue-300">Yearly</li>
             </ul>
 
             <p>How many employees?</p>
             <ul class="Price--Selector__price-controls flex flex-row cursor-pointer justify-center max-w-2xl mx-auto">
-              <li data-price-range="priceRange1" class="hover:bg-blue-300">1</li>
+              <li data-price-range="priceRange1" class="active-price hover:bg-blue-300">1</li>
               <li data-price-range="priceRange2" class="hover:bg-blue-300">2</li>
               <li data-price-range="priceRange3" class="hover:bg-blue-300">3</li>
               <li data-price-range="priceRange4" class="hover:bg-blue-300">4</li>
               <li data-price-range="priceRange5" class="hover:bg-blue-300">5</li>
             </ul>
 
-          <div class="flex max-w-2xl mx-auto shadow justify-center mt-20">
+          <div class="flex flex-col max-w-2xl mx-auto shadow justify-center mt-20">
+              <p>Membership</p>
               <h3 class="Price--Selector__subscription-price text-4xl font-bold">0</h3>
+          </div>
+
+          <div class="flex flex-col max-w-2xl mx-auto shadow justify-center mt-20">
+            <p>Customerscore</p>
+            <h3 class="Price--Selector__customer-score text-4xl font-bold">0</h3>
+            <p class="text-xs text-gray-600">*Only monthly payment</p>
+          </div>
+          
+          <div class="flex flex-col max-w-2xl mx-auto shadow justify-center mt-20">
+            <p>Shippingscore</p>
+            <h3 class="Price--Selector__shipping-score text-4xl font-bold">0</h3>
+            <p class="text-xs text-gray-600">*Only monthly payment</p>
           </div>
 
         </div>

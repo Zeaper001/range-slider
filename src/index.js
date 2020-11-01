@@ -9,6 +9,8 @@ class PriceSelector {
         this.priceControls = this.element.querySelectorAll('.Price--Selector__price-controls li');
         this.periodControls = this.element.querySelectorAll('.Price--Selector__subscription-period li');
         this.subscription = this.element.querySelector('.Price--Selector__subscription-price');
+        this.customer_score = this.element.querySelector('.Price--Selector__customer-score');
+        this.shipping_score = this.element.querySelector('.Price--Selector__shipping-score');
 
         this.PAYMENT_PERIODS = {
             monthly: prices,
@@ -39,7 +41,7 @@ class PriceSelector {
         };
 
         this.bindEvents();
-        this.setPrice();
+        this.setPrices();
     }
 
     bindEvents() {
@@ -57,13 +59,38 @@ class PriceSelector {
 
 
         this.state.registerListener(() => {
-            console.log(this.state)
-            this.setPrice();
+            this.setPrices();
+
+            this.priceControls.forEach((item) => {
+                if(item.dataset.priceRange === this.state.price) {
+                    return item.classList.add('active-price');
+                }
+
+                item.classList.remove('active-price');
+            });
+
+            this.periodControls.forEach((item) => {
+                if(item.dataset.periodRange === this.state.period) {
+                    return item.classList.add('active-price');
+                }
+
+                item.classList.remove('active-price');
+            });
         })
     }
 
-    setPrice() {
-        this.subscription.innerHTML = this.PAYMENT_PERIODS[this.state.paymentPeriod][this.state.price].standard;
+    setPrices() {
+        if(this.subscription) {
+            this.subscription.innerHTML = this.PAYMENT_PERIODS[this.state.period][this.state.price].standard;
+        }
+
+        if(this.customer_score) {
+            this.customer_score.innerHTML = this.PAYMENT_PERIODS[this.state.period][this.state.price].customerScore;
+        }
+
+        if(this.shipping_score) {
+            this.shipping_score.innerHTML = this.PAYMENT_PERIODS[this.state.period][this.state.price].shippingScore;
+        }
     }
 }
 
