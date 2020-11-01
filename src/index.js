@@ -94,7 +94,10 @@ class PriceSelector {
     }
 }
 
+const priceSelectors = []
 
-const wrapper = document.querySelector('.Price--Selector');
+const wrapper = document.querySelectorAll('.Price--Selector');
 
-new PriceSelector(wrapper);
+for (var i = 0; i < wrapper.length; i++) {
+    priceSelectors.push(new PriceSelector(wrapper[i]));
+}
